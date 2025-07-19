@@ -43,7 +43,17 @@ function FileUpload() {
         window.URL.revokeObjectURL(url);
       });
   }
-  
+    function handleDelete(filename) {
+    fetch(`http://localhost:3000/delete/${filename}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.message);
+        // Xoá file khỏi state
+        setFiles((prevFiles) => prevFiles.filter((f) => f.name !== filename));
+      })
+      .catch((err) => console.log("Error deleting file:", err));
     useEffect(() => {
        const user = localStorage.getItem("username");
         if (user) {
@@ -131,6 +141,9 @@ function FileUpload() {
                 <div>
                   <button onClick={() => handleDownload(f.name)}>
                     <FontAwesomeIcon icon={faCircleDown} />
+                  </button>
+                  <button onClick={() => handleDelete(f.name)}>
+                    <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </div>
               </div>
