@@ -69,6 +69,7 @@ app.delete('/delete/:filename', (req, res) => {
       return res.status(500).json({ message: "Xoá file thất bại" });
     }
     res.json({ message: "Xoá file thành công" });
+    await File.deleteOne({ name: filename });
   });
 });
 //database
