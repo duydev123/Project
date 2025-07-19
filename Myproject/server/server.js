@@ -43,6 +43,19 @@ app.post('/upload' , upload.single('file'),(req , res) => {
     res.json({message: "Upload Finish" , file: req.file});
 });
 app.use('/upload' , express.static(path.join(__dirname,"upload")));
+//delete
+app.delete('/delete/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'upload', filename);
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Xoá file thất bại" });
+    }
+    res.json({ message: "Xoá file thành công" });
+  });
+});
 //database
 mongoose.connect('mongodb+srv://admin:admin01st@mydata.q6qg74c.mongodb.net/MyData' , {
 })
