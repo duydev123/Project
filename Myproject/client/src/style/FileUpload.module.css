@@ -1,0 +1,140 @@
+.main_container
+{
+   height: 100%;
+   background-color:black ;
+   padding: 12vh 14vw;
+    background-image: url(../assets/main-bg.jpg);
+    background-size: cover;
+}
+.container 
+{
+    height: 76vh;
+    background-color: white;
+    border-radius: 12px;
+    padding: 2vh 1vw;
+}
+.container .nav
+{
+    display: flex;
+    justify-content: space-between;
+}
+.container .nav .logo svg 
+{
+    font-size: 2rem;
+    color:darkorchid
+}
+.container .nav .logo svg:hover
+{
+    color:rgb(140, 23, 199)
+}
+.container .nav .logo button
+{
+    outline: none;
+    background: none;
+    border:none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.container .nav .search
+{
+    margin-left:-4vw;
+}
+ .container .nav .search svg
+ {
+    font-size: 1.3rem;
+    position: absolute;
+    margin: 0.3vw -1.7vw;
+ }
+ .container .nav .search input
+ {
+    padding: 0.2vh 0.4vw;
+    font-size: 1.2rem;
+    border-radius: 16px;
+    border: 1px solid gray;
+    width: 16vw;
+ }
+ .container .nav .user
+ {
+    background-color: rgb(25, 202, 113);
+    align-items: center;
+    padding-left:0.2vw;
+    padding-top: 0.4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+ }
+ .container .nav .user:hover
+ {
+    background-color: rgb(1, 136, 69);
+ }
+ .container .nav .user svg
+ {
+    font-size: 1.5rem;
+    color: white;
+ }
+ .container .nav .user button
+ {
+    padding: 0.2vh 0.4vw;
+    border: none;
+    background: none;
+    color: white;
+ }
+ .container .nav .upload button
+ {
+    font-size: 1.2rem;
+    padding: 0vh 2vw;
+    border-radius: 8px;
+    background-color: rgb(61, 61, 61);
+    color: white;
+ }
+  .container .nav .upload button:hover
+  {
+    background-color: black;
+    cursor: pointer;
+  }
+ .file
+ {
+    display: flex;
+    margin-top: 4vh;
+    font-size: 1.5rem;
+ }
+ .file div
+ {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray;
+ }
+ .file div:nth-of-type(5)
+ {
+    border-right: none;
+ }
+ .file_ctn
+ {
+    display: flex;
+    flex-direction: column;
+ }
+ .file_ctn .ctn
+{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid gray;
+    font-size: 1.2rem;
+}
+.file_ctn .ctn div
+{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+}
+.file_ctn .ctn div button
+{
+    border:none;
+    background:none;
+}
+.file_ctn .ctn div button
+{
+    cursor: pointer;
+}
