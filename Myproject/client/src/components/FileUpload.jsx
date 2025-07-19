@@ -19,7 +19,7 @@ function FileUpload() {
     formdata.append("file", file);
     formdata.append("owner", owner); // 👈 gửi kèm owner
 
-    fetch("http://localhost:3000/upload", {
+    fetch("https://server-67ff.onrender.com/upload", {
       method: "POST",
       body: formdata,
     })
