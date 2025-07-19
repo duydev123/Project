@@ -44,7 +44,7 @@ function FileUpload() {
       });
   }
     function handleDelete(filename) {
-    fetch(`http://localhost:3000/delete/${filename}`, {
+    fetch(`https://server-67ff.onrender.com/upload/delete/${filename}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
