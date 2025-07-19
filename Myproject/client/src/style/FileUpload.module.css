@@ -138,3 +138,11 @@
 {
     cursor: pointer;
 }
+.file_ctn .ctn div:nth-of-type(5)
+{
+   display: flex;
+}
+.file_ctn .ctn div:nth-of-type(5) button
+{
+   width: 40%;
+}
