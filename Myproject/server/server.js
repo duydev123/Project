@@ -14,6 +14,10 @@ app.use(cors({
 );
 app.use(express.static('public'));
 app.use(express.json());
+//create uploadfile
+if (!fs.existsSync('./upload')) {
+  fs.mkdirSync('./upload');
+}
 //fs file read
 app.get('/file' , (req,res) => {
     fs.readdir('upload/' , (err, files) => {
