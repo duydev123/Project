@@ -49,6 +49,18 @@ function FileUpload() {
         if (user) {
         setOwner(user);
       }
+       fetch("https://server-67ff.onrender.com/file")
+         .then((res) => res.json())
+         .then((data) => {
+           const filesFromServer = data.map((file) => ({
+             name: file,
+             owner: user,
+             date: new Date().toLocaleDateString(),
+             size: "unknown",
+           }));
+           setFiles(filesFromServer);
+         })
+         .catch((err) => console.log("Error loading files:", err));
         }, []);
   return (
     <>
