@@ -59,7 +59,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 });
 app.use('/upload' , express.static(path.join(__dirname,"upload")));
 //delete
-app.delete('/delete/:filename', (req, res) => {
+app.delete('/delete/:filename', async (req, res) => {
   const filename = req.params.filename;
   const filePath = path.join(__dirname, 'upload', filename);
 
