@@ -21,17 +21,17 @@ function LoginPage() {
     let datamode = {};
     if(mode === 'login') 
     {
-      url = 'http://localhost:3000/login'
+      url = 'https://server-67ff.onrender.com/login'
       datamode = {username,password}
     }
     else if(mode === 'register' )
     {
-       url = "http://localhost:3000/register";
+       url = "https://server-67ff.onrender.com/register";
        datamode = { username, email , password };
     }
     else if(mode === 'forgot')
     {
-      url = 'http://localhost:3000/forgot'
+      url = 'https://server-67ff.onrender.com/forgot'
       datamode = {username,email};
     }
     try {
