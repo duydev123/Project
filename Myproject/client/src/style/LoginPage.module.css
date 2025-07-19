@@ -125,6 +125,5 @@ html, body {
     height: 76vh;
     background-image: url(../assets/star.jpg);
     background-size: cover;
-    background-position-y: 2vh;
     border-radius: 0px 12px 12px 0px;
 }
