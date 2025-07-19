@@ -81,7 +81,7 @@ function LoginPage() {
                     <FontAwesomeIcon className={styles.icon} icon={faLock} />
                     <label>PassWord</label>
                   </div>
-                  <input type="text" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                  <input type="password" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)}></input>
                 </form>
                 <button type="submit" onClick={handlesubmit}>Submit</button>
                 <div className={styles.btn}>
@@ -103,7 +103,7 @@ function LoginPage() {
                     <FontAwesomeIcon className={styles.icon} icon={faLock} />
                     <label>PassWord</label>
                   </div>
-                  <input type="text" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)} ></input>
+                  <input type="password" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)} ></input>
                 </form>
                 <button type="submit" onClick={handlesubmit}>Submit</button>
                 <div className={styles.btn}>
