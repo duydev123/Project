@@ -18,7 +18,7 @@ function FileUpload() {
     const formdata = new FormData();
     formdata.append("file", file);
 
-    fetch('http://localhost:3000/upload', {
+    fetch('https://server-67ff.onrender.com/upload', {
       method: "POST",
       body: formdata,
     })
@@ -32,7 +32,7 @@ function FileUpload() {
       }]);
   }
   function handleDownload(filename) {
-    fetch(`http://localhost:3000/upload/${filename}`)
+    fetch(`https://server-67ff.onrender.com/upload/${filename}`)
       .then((res) => res.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(blob);
