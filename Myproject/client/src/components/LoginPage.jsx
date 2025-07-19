@@ -79,7 +79,7 @@ function LoginPage() {
                   <input type="text" placeholder="Enter Email.." value={email} onChange={(e) => setEmail(e.target.value)}></input>
                   <div>
                     <FontAwesomeIcon className={styles.icon} icon={faLock} />
-                    <label>PassWord</label>
+                    <label>Password</label>
                   </div>
                   <input type="password" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)}></input>
                 </form>
@@ -101,7 +101,7 @@ function LoginPage() {
                   <input type="text" placeholder="Enter Username.." value={username} onChange={(e) => setUsername(e.target.value)}></input>
                   <div>
                     <FontAwesomeIcon className={styles.icon} icon={faLock} />
-                    <label>PassWord</label>
+                    <label>Password</label>
                   </div>
                   <input type="password" placeholder="Enter Password.." value={password} onChange={(e) => setPassword(e.target.value)} ></input>
                 </form>
