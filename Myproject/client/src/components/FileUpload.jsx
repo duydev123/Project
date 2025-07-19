@@ -44,13 +44,12 @@ function FileUpload() {
       });
   }
     function handleDelete(filename) {
-    fetch(`https://server-67ff.onrender.com/upload/delete/${filename}`, {
+    fetch(`https://server-67ff.onrender.com/delete/${filename}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data.message);
-        // Xoá file khỏi state
         setFiles((prevFiles) => prevFiles.filter((f) => f.name !== filename));
       })
       .catch((err) => console.log("Error deleting file:", err));
