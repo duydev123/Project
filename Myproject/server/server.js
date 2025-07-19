@@ -19,12 +19,9 @@ if (!fs.existsSync('./upload')) {
   fs.mkdirSync('./upload');
 }
 //fs file read
-app.get('/file' , (req,res) => {
-    fs.readdir('upload/' , (err, files) => {
-        if(err)
-            return res.status(500).json({error:"cant read folder with file"});
-        res.json(files);
-    });
+app.get('/file', async (req, res) => {
+  const files = await File.find();
+  res.json(files);
 });
 app.get('/upload/:filename' , (req , res) => {
     const filename = req.params.filename;
@@ -42,9 +39,23 @@ const storage = multer.diskStorage({
     },
 });
 const upload = multer({storage});
-app.post('/upload' , upload.single('file'),(req , res) => {
-    console.log("File receive:", req.file);
-    res.json({message: "Upload Finish" , file: req.file});
+app.post('/upload', upload.single('file'), async (req, res) => {
+  const file = req.file;
+  const owner = req.body.owner;
+  const date = new Date().toLocaleDateString();
+  const size = Math.round(file.size / 1024) + "kb";
+
+  const newFile = new File({
+    name: file.originalname,
+    owner: owner,
+    size: size,
+    date: date
+  });
+
+  await newFile.save();
+
+  console.log("File uploaded and saved to DB:", newFile);
+  res.json({ message: "Upload Finish", file: newFile });
 });
 app.use('/upload' , express.static(path.join(__dirname,"upload")));
 //delete
@@ -96,6 +107,16 @@ app.post('/register', async (req , res) => {
     await newUser.save();
     res.json({success: true, message:'User register successfully'})
 })
+//new schema
+const FileSchema = new mongoose.Schema({
+  name: String,
+  owner: String,
+  size: String,
+  date: String
+});
+
+const File = mongoose.model('File', FileSchema);
+//
 app.listen(port, "0.0.0.0" , () => {
      console.log(`Server listening at http://localhost:${port}`);
 }
