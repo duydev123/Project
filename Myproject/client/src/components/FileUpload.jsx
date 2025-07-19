@@ -1,7 +1,7 @@
 import { useRef ,useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faTruckFast,faSquareCaretUp,faMagnifyingGlass,faUser,faCircleDown,} from "@fortawesome/free-solid-svg-icons";
+import {faTruckFast,faSquareCaretUp,faMagnifyingGlass,faUser,faCircleDown,faTrash} from "@fortawesome/free-solid-svg-icons";
 import styles from "../style/FileUpload.module.css"
 import { useState } from "react";
 
