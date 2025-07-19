@@ -3,12 +3,12 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const multer = require('multer')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 const path = require('path')
 const fs = require('fs')
 
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['http://localhost:5173','https://client-5muy.onrender.com'],
     credentials: true
 })
 );
@@ -79,7 +79,7 @@ app.post('/register', async (req , res) => {
     await newUser.save();
     res.json({success: true, message:'User register successfully'})
 })
-app.listen(port, () => {
+app.listen(port, "0.0.0.0" , () => {
      console.log(`Server listening at http://localhost:${port}`);
 }
 );
