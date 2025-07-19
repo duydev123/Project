@@ -53,17 +53,23 @@ function FileUpload() {
       })
       .catch((err) => console.log("Error deleting file:", err));
     }
-    useEffect(() => {
+ useEffect(() => {
        const user = localStorage.getItem("username");
         if (user) {
         setOwner(user);
       }
-       const filesFromServer = data.map((file) => ({
-  name: file.name,
-  owner: file.owner,
-  date: file.date,
-  size: file.size,
-}));
+        fetch("https://server-67ff.onrender.com/file")
+          .then((res) => res.json())
+          .then((data) => {
+            const filesFromServer = data.map((file) => ({
+              name: file.name,
+              owner: file.owner,
+              date: file.date || new Date().toLocaleDateString(),
+              size: file.size || "unknown",
+            }));
+            setFiles(filesFromServer);
+          });
+        }, []);
   return (
     <>
       <Helmet>
