@@ -8,7 +8,7 @@ const path = require('path')
 const fs = require('fs')
 
 app.use(cors({
-    origin: ['http://localhost:5173','https://client-5muy.onrender.com'],
+    origin: ['http://localhost:5173','https://client-oig2.onrender.com/'],
     credentials: true
 })
 );
