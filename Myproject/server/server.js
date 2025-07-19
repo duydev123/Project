@@ -69,8 +69,8 @@ app.delete('/delete/:filename', async (req, res) => {
       return res.status(500).json({ message: "Xoá file thất bại" });
     }
     res.json({ message: "Xoá file thành công" });
-    await File.deleteOne({ name: filename });
   });
+    await File.deleteOne({ name: filename });
 });
 //database
 mongoose.connect('mongodb+srv://admin:admin01st@mydata.q6qg74c.mongodb.net/MyData' , {
