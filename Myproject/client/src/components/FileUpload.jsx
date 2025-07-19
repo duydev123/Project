@@ -54,6 +54,7 @@ function FileUpload() {
         setFiles((prevFiles) => prevFiles.filter((f) => f.name !== filename));
       })
       .catch((err) => console.log("Error deleting file:", err));
+    }
     useEffect(() => {
        const user = localStorage.getItem("username");
         if (user) {
