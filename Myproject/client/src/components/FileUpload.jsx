@@ -13,23 +13,22 @@ function FileUpload() {
     fileInputRef.current.click();
   }
 
-  function upload(e) {
+    function upload(e) {
     const file = e.target.files[0];
     const formdata = new FormData();
     formdata.append("file", file);
+    formdata.append("owner", owner); // 👈 gửi kèm owner
 
-    fetch('https://server-67ff.onrender.com/upload', {
+    fetch("http://localhost:3000/upload", {
       method: "POST",
       body: formdata,
     })
       .then((res) => res.json())
-      .then((data) => alert(data.message));
-      setFiles(prevFiles => [...prevFiles, {
-        name:file.name,
-        owner:owner,
-        date: new Date().toLocaleDateString(),
-        size:Math.round(file.size/1024)+"kb"
-      }]);
+      .then((data) => {
+        console.log(data.message);
+        // Thêm file mới vào state từ response
+        setFiles((prev) => [...prev, data.file]);
+      });
   }
   function handleDownload(filename) {
     fetch(`https://server-67ff.onrender.com/upload/${filename}`)
